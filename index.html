@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JC WIN TRADERS | Smart Trading Insights</title>
+  <title>JC WIN TRADERS | Learn Smart Trading Strategies</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       box-sizing: border-box;
@@ -17,11 +17,49 @@
       background: #f8fafc;
       color: #1e293b;
       line-height: 1.6;
+      padding-top: 60px; /* Offset for sticky bar */
     }
+
+    /* 🔥 STICKY TELEGRAM BAR (ALWAYS VISIBLE) */
+    .sticky-cta {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, #0088CC, #26A5E4);
+      color: white;
+      padding: 12px 20px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      animation: pulse 2s infinite;
+    }
+    .sticky-cta a {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sticky-cta i {
+      font-size: 1.3rem;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
     header {
       background: linear-gradient(135deg, #2563eb, #1e40af);
       color: white;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem 3rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -33,7 +71,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover;
+      background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover;
       opacity: 0.1;
     }
     header h1 {
@@ -73,7 +111,6 @@
       gap: 2rem;
       margin: 2rem 0;
     }
-
     .card {
       background: white;
       padding: 2rem;
@@ -99,6 +136,7 @@
       color: #475569;
     }
 
+    /* 🎨 MODERN TELEGRAM BUTTONS */
     .cta {
       text-align: center;
       margin: 3rem 0;
@@ -109,8 +147,8 @@
       gap: 1.5rem;
       flex-wrap: wrap;
     }
-    .cta-button {
-      background: #2563eb;
+    .telegram-btn {
+      background: linear-gradient(90deg, #0088CC, #26A5E4);
       color: white;
       padding: 1rem 2rem;
       font-size: 1.1rem;
@@ -120,16 +158,14 @@
       align-items: center;
       gap: 10px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+      font-weight: 600;
     }
-    .cta-button.telegram {
-      background: #0088cc;
+    .telegram-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 136, 204, 0.4);
     }
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-    .cta-button i {
+    .telegram-btn i {
       font-size: 1.3rem;
     }
 
@@ -186,61 +222,69 @@
 </head>
 <body>
 
+  <!-- 🔥 STICKY TELEGRAM BAR (ALWAYS VISIBLE) -->
+  <div class="sticky-cta">
+    <a href="https://t.me/jcwintraders" target="_blank">
+      <i class="fab fa-telegram"></i> 
+      <span>JOIN NOW for Free Market Insights!</span>
+    </a>
+  </div>
+
   <header>
     <h1>JC WIN TRADERS</h1>
-    <p>Smart Trading Insights | Market Analysis & Strategy Guides</p>
+    <p>Learn Trading Strategies | Market Analysis & Risk Management</p>
   </header>
 
   <section class="intro">
-    <h2>Learn to Trade Smarter with Data-Driven Insights</h2>
-    <p>Discover how to analyze markets effectively with JC WIN TRADERS. Our guides help traders identify opportunities using technical analysis—no promises, just education.</p>
+    <h2>Trade Smarter, Not Harder</h2>
+    <p>Join our community to learn how to analyze markets like a pro. No "get rich quick" schemes—just real education.</p>
   </section>
 
   <section>
     <div class="features">
       <div class="card">
-        <h3><i class="fas fa-chart-line"></i> Morning Market Analysis</h3>
-        <p>Start your trading day with key insights. Learn how to interpret trends, support/resistance levels, and potential setups for binary options on platforms like Quotex.</p>
+        <h3><i class="fas fa-chart-line"></i> Morning Analysis</h3>
+        <p>Learn how to interpret key levels and trends to identify potential trading opportunities.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-moon"></i> Evening Strategy Session</h3>
-        <p>Wrap up your trading day with a review of market movements. Understand how global events impact price action and how to adjust strategies accordingly.</p>
+        <h3><i class="fas fa-moon"></i> Evening Review</h3>
+        <p>Understand how global markets moved and what it means for the next trading session.</p>
       </div>
     </div>
 
     <div class="card">
-      <h3><i class="fas fa-graduation-cap"></i> Quotex Trading Guide</h3>
-      <p>We provide educational content on how to use platforms like Quotex responsibly. Learn risk management, technical indicators, and how to avoid common trading mistakes.</p>
+      <h3><i class="fas fa-graduation-cap"></i> Platform Guides</h3>
+      <p>We explain how to use trading platforms responsibly—focusing on risk management and strategy.</p>
     </div>
   </section>
 
+  <!-- 🎨 TELEGRAM CTA SECTION -->
   <div class="cta">
-    <h3>Join Our Free Telegram Community</h3>
-    <p>Get daily market insights and trading guides—no paid signals, just learning.</p>
+    <h3>Ready to Improve Your Trading?</h3>
+    <p>Join <strong>4,000+ traders</strong> learning together for free:</p>
     
     <div class="cta-grid">
-      <a href="https://t.me/jcwintraders" class="cta-button telegram" target="_blank">
-        <i class="fab fa-telegram"></i> Join Telegram
-      </a>
-      <a href="#" class="cta-button">
-        <i class="fas fa-book"></i> Learn Trading Basics
+      <a href="https://t.me/jcwintraders" class="telegram-btn" target="_blank">
+        <i class="fab fa-telegram"></i> Join Telegram Group
       </a>
     </div>
+    <p style="margin-top: 1rem; font-size: 0.9rem; color: #64748b;">
+      <i class="fas fa-lock"></i> No spam. Unsubscribe anytime.
+    </p>
   </div>
 
   <section>
     <div class="testimonial">
-      <p>"JC WIN TRADERS helped me understand market analysis—not just blindly following signals. My risk management improved significantly!"</p>
-      <p><strong>– Raj K., Trader since 2022</strong></p>
+      <p>"JC WIN TRADERS taught me how to analyze charts properly—I no longer trade blindly. My consistency improved!"</p>
+      <p><strong>– Mark T., Trader since 2021</strong></p>
     </div>
   </section>
 
   <footer>
-    <p>JC WIN TRADERS © 2024 | Educational Content Only</p>
-    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <p>JC WIN TRADERS © 2025 | Educational Content Only</p>
     
     <div class="disclaimer">
-      <p><strong>Disclaimer:</strong> JC WIN TRADERS does not provide financial advice or guarantee profits. Trading binary options (e.g., Quotex) carries high risk—you may lose your entire investment. Our content is for educational purposes only. We are not affiliated with Quotex or any brokerage. Always conduct your own research before trading. This page complies with Google Ads policies regarding financial content.</p>
+      <p><strong>Disclaimer:</strong> We do not provide financial advice. Trading carries risk. Our content is for educational purposes only. Not affiliated with any brokerage.</p>
     </div>
   </footer>
 
