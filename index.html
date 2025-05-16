@@ -3,67 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JC WIN TRADERS | Daily Trade Signals</title>
+  <title>JC WIN TRADERS | Premium Trade Signals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f2f6fc;
-      color: #333;
+      background: #f4f7fb;
+      color: #1a1a1a;
+      line-height: 1.6;
     }
     header {
-      background: #004aad;
+      background: linear-gradient(135deg, #004aad, #0266d6);
       color: white;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem 2rem;
       text-align: center;
     }
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
     }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
     section {
-      padding: 2rem 1rem;
-      max-width: 800px;
+      padding: 3rem 1rem;
+      max-width: 960px;
       margin: auto;
     }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .intro h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #004aad;
+    }
+
     .features {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 2rem;
     }
+
     .card {
       background: white;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease;
     }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
     .card h3 {
-      margin-top: 0;
+      font-size: 1.5rem;
       color: #004aad;
+      margin-bottom: 1rem;
     }
+
+    .card p {
+      font-size: 1rem;
+      color: #444;
+    }
+
     .cta {
       text-align: center;
-      margin: 2rem 0;
+      margin-top: 3rem;
     }
+
     .cta a {
       background: #004aad;
       color: white;
-      padding: 1rem 2rem;
-      border-radius: 2rem;
-      text-decoration: none;
+      padding: 1rem 2.5rem;
       font-size: 1.2rem;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: background 0.3s ease;
     }
+
+    .cta a:hover {
+      background: #0266d6;
+    }
+
     footer {
-      font-size: 0.9rem;
-      background: #f0f0f0;
-      padding: 1.5rem;
+      font-size: 0.85rem;
+      background: #eaeaea;
+      padding: 2rem 1rem;
       text-align: center;
-      color: #666;
+      color: #555;
+      margin-top: 4rem;
     }
+
     @media (max-width: 768px) {
       .features {
         grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      .intro h2 {
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -72,22 +125,27 @@
 
   <header>
     <h1>JC WIN TRADERS</h1>
-    <p>Daily Trade Signals | Morning 10 + Evening 10</p>
+    <p>Daily Trade Signals | 10 in the Morning + 10 in the Evening</p>
   </header>
+
+  <section class="intro">
+    <h2>Accurate, Consistent & Timely Trade Signals</h2>
+    <p>Join thousands of traders who rely on JC WIN TRADERS for powerful trade signals every day. Whether you're just starting out or already deep into the markets, we've got your back with data-driven insights.</p>
+  </section>
 
   <section class="features">
     <div class="card">
-      <h3>Morning Signals</h3>
-      <p>Get 10 premium trade signals every morning, curated by experienced market analysts to help you start your day with confidence.</p>
+      <h3>📈 Morning Trade Signals</h3>
+      <p>Get 10 expert-curated signals delivered every morning to give you a confident start to your trading day. These signals are generated using technical analysis and market trends.</p>
     </div>
     <div class="card">
-      <h3>Evening Signals</h3>
-      <p>Receive 10 hand-picked trade signals every evening to help you wrap up your trading day with strategic moves.</p>
+      <h3>🌙 Evening Trade Signals</h3>
+      <p>Wrap up your trading day with 10 more carefully selected signals in the evening. Perfect for late-session or after-hours opportunities across global markets.</p>
     </div>
   </section>
 
   <div class="cta">
-    <a href="https://t.me/jcwintraders" target="_blank">Join Our Telegram Channel</a>
+    <a href="https://t.me/jcwintraders" target="_blank">📲 Join Our Telegram Channel</a>
   </div>
 
   <footer>
