@@ -3,33 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JC WIN TRADERS | Premium Trade Signals</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>JC WIN TRADERS | Smart Trading Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f7fb;
-      color: #1a1a1a;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
       line-height: 1.6;
     }
     header {
-      background: linear-gradient(135deg, #004aad, #0266d6);
+      background: linear-gradient(135deg, #2563eb, #1e40af);
       color: white;
-      padding: 3rem 1rem 2rem;
+      padding: 3rem 1rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover;
+      opacity: 0.1;
     }
     header h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       margin-bottom: 0.5rem;
+      position: relative;
     }
     header p {
       font-size: 1.2rem;
       opacity: 0.9;
+      position: relative;
     }
 
     section {
@@ -44,14 +59,19 @@
     }
     .intro h2 {
       font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: #004aad;
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+    .intro p {
+      font-size: 1.1rem;
+      color: #475569;
     }
 
     .features {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
+      margin: 2rem 0;
     }
 
     .card {
@@ -60,63 +80,106 @@
       border-radius: 12px;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
       transition: transform 0.2s ease;
+      border: 1px solid #e2e8f0;
     }
-
     .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
-
     .card h3 {
       font-size: 1.5rem;
-      color: #004aad;
+      color: #2563eb;
       margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-
     .card p {
       font-size: 1rem;
-      color: #444;
+      color: #475569;
     }
 
     .cta {
       text-align: center;
-      margin-top: 3rem;
+      margin: 3rem 0;
     }
-
-    .cta a {
-      background: #004aad;
+    .cta-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cta-button {
+      background: #2563eb;
       color: white;
-      padding: 1rem 2.5rem;
-      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
       text-decoration: none;
-      border-radius: 30px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: background 0.3s ease;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .cta-button.telegram {
+      background: #0088cc;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .cta-button i {
+      font-size: 1.3rem;
     }
 
-    .cta a:hover {
-      background: #0266d6;
+    .testimonial {
+      background: #f1f5f9;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      text-align: center;
+      font-style: italic;
+      color: #334155;
     }
 
     footer {
-      font-size: 0.85rem;
-      background: #eaeaea;
-      padding: 2rem 1rem;
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 3rem 1rem;
       text-align: center;
-      color: #555;
       margin-top: 4rem;
+    }
+    footer p {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    .disclaimer {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      text-align: left;
     }
 
     @media (max-width: 768px) {
       .features {
         grid-template-columns: 1fr;
       }
-
       header h1 {
         font-size: 2.2rem;
       }
-
       .intro h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+      }
+      .cta-grid {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -125,31 +188,60 @@
 
   <header>
     <h1>JC WIN TRADERS</h1>
-    <p>Daily Trade Signals | 10 in the Morning + 10 in the Evening</p>
+    <p>Smart Trading Insights | Market Analysis & Strategy Guides</p>
   </header>
 
   <section class="intro">
-    <h2>Accurate, Consistent & Timely Trade Signals</h2>
-    <p>Join thousands of traders who rely on JC WIN TRADERS for powerful trade signals every day. Whether you're just starting out or already deep into the markets, we've got your back with data-driven insights.</p>
+    <h2>Learn to Trade Smarter with Data-Driven Insights</h2>
+    <p>Discover how to analyze markets effectively with JC WIN TRADERS. Our guides help traders identify opportunities using technical analysis—no promises, just education.</p>
   </section>
 
-  <section class="features">
-    <div class="card">
-      <h3>📈 Morning Trade Signals</h3>
-      <p>Get 10 expert-curated signals delivered every morning to give you a confident start to your trading day. These signals are generated using technical analysis and market trends.</p>
+  <section>
+    <div class="features">
+      <div class="card">
+        <h3><i class="fas fa-chart-line"></i> Morning Market Analysis</h3>
+        <p>Start your trading day with key insights. Learn how to interpret trends, support/resistance levels, and potential setups for binary options on platforms like Quotex.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-moon"></i> Evening Strategy Session</h3>
+        <p>Wrap up your trading day with a review of market movements. Understand how global events impact price action and how to adjust strategies accordingly.</p>
+      </div>
     </div>
+
     <div class="card">
-      <h3>🌙 Evening Trade Signals</h3>
-      <p>Wrap up your trading day with 10 more carefully selected signals in the evening. Perfect for late-session or after-hours opportunities across global markets.</p>
+      <h3><i class="fas fa-graduation-cap"></i> Quotex Trading Guide</h3>
+      <p>We provide educational content on how to use platforms like Quotex responsibly. Learn risk management, technical indicators, and how to avoid common trading mistakes.</p>
     </div>
   </section>
 
   <div class="cta">
-    <a href="https://t.me/jcwintraders" target="_blank">📲 Join Our Telegram Channel</a>
+    <h3>Join Our Free Telegram Community</h3>
+    <p>Get daily market insights and trading guides—no paid signals, just learning.</p>
+    
+    <div class="cta-grid">
+      <a href="https://t.me/jcwintraders" class="cta-button telegram" target="_blank">
+        <i class="fab fa-telegram"></i> Join Telegram
+      </a>
+      <a href="#" class="cta-button">
+        <i class="fas fa-book"></i> Learn Trading Basics
+      </a>
+    </div>
   </div>
 
+  <section>
+    <div class="testimonial">
+      <p>"JC WIN TRADERS helped me understand market analysis—not just blindly following signals. My risk management improved significantly!"</p>
+      <p><strong>– Raj K., Trader since 2022</strong></p>
+    </div>
+  </section>
+
   <footer>
-    <p><strong>Disclaimer:</strong> The information provided on JC WIN TRADERS is for educational and informational purposes only. We do not provide investment advice or recommendations. Trading involves risk, and you should only trade with capital you can afford to lose. Past performance is not indicative of future results. This page complies with Google Ads policies and does not promote financial products with unrealistic claims.</p>
+    <p>JC WIN TRADERS © 2024 | Educational Content Only</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    
+    <div class="disclaimer">
+      <p><strong>Disclaimer:</strong> JC WIN TRADERS does not provide financial advice or guarantee profits. Trading binary options (e.g., Quotex) carries high risk—you may lose your entire investment. Our content is for educational purposes only. We are not affiliated with Quotex or any brokerage. Always conduct your own research before trading. This page complies with Google Ads policies regarding financial content.</p>
+    </div>
   </footer>
 
 </body>
