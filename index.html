@@ -460,6 +460,32 @@
       <p><strong>Disclaimer:</strong> We do not provide financial advice. Trading carries substantial risk of loss and is not suitable for every investor. Our content is for educational purposes only. JC WIN TRADERS is not affiliated with any brokerage or financial institution.</p>
     </div>
   </footer>
+<script>
+document.addEventListener('mouseout', function(e) {
+  if (e.clientY < 0) { // Triggers when mouse leaves top of screen
+    document.getElementById('exit-popup').style.display = 'block';
+  }
+});
+</script>
 
+<!-- Popup HTML -->
+<div id="exit-popup" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.8); z-index:9999; padding:20px;">
+  <div style="background:white; max-width:400px; margin:10% auto; padding:25px; border-radius:12px; text-align:center; border:3px solid #0088cc;">
+    <h3 style="color:#2563eb;">Wait! Get Free Trading Lessons</h3>
+    <p>Join 4000+ traders learning technical analysis in our Telegram group:</p>
+    <a href="https://t.me/jcwintraders" target="_blank" style="background:#0088cc; color:white; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:15px;">
+      <i class="fab fa-telegram"></i> Join Telegram Group
+    </a>
+    <p style="font-size:12px; margin-top:15px; color:#64748b;">
+      <i class="fas fa-lock"></i> No spam. Unsubscribe anytime.
+    </p>
+    <button onclick="document.getElementById('exit-popup').style.display='none'" style="background:none; border:none; position:absolute; top:10px; right:10px; font-size:20px; cursor:pointer;">×</button>
+    
+    <!-- Disclaimer -->
+    <div style="background:#f8f9fa; border-left:3px solid #dc3545; padding:8px; margin-top:15px; font-size:12px; text-align:left;">
+      <strong>⚠️ Disclaimer:</strong> Educational content only. Not SEBI-registered.
+    </div>
+  </div>
+</div>
 </body>
 </html>
