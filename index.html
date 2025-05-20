@@ -19,6 +19,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            overflow-x: hidden;
         }
         
         .container {
@@ -39,19 +40,35 @@
             100% { box-shadow: 0 0 15px rgba(100, 65, 255, 0.5); }
         }
         
-        .logo {
-            font-size: 3.5rem;
-            margin-bottom: 5px;
-            background: linear-gradient(45deg, #6a11cb, #2575fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(106, 17, 203, 0.5);
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-img {
+            width: 80%;
+            height: auto;
+            object-fit: contain;
         }
         
         h1 {
-            font-size: 2rem;
-            margin: 10px 0;
+            font-size: 1.8rem;
+            margin: 10px 0 5px;
             font-weight: 800;
             letter-spacing: 0.5px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
         .highlight {
@@ -100,33 +117,75 @@
         
         .badge {
             display: inline-block;
-            padding: 5px 15px;
+            padding: 8px 15px;
             background: rgba(106, 17, 203, 0.2);
             border-radius: 20px;
             font-size: 0.9rem;
-            margin-bottom: 20px;
+            margin: 10px 0 20px;
             border: 1px solid #6a11cb;
             color: #d9a3ff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin: 25px 0;
+        }
+        
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            color: #6a11cb;
+            margin-bottom: 5px;
+        }
+        
+        .feature-text {
+            font-size: 0.8rem;
+            color: #b8b8b8;
+            font-family: 'Montserrat', sans-serif;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">
-            <i class="fas fa-coins"></i>
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/jcwintraders/jc-win-traders/refs/heads/main/jcwinlogo.png" alt="JC WIN Traders Logo" class="logo-img">
         </div>
+        
         <h1>JC WIN TRADERS</h1>
         
         <div class="badge">
             <i class="fas fa-bolt"></i> DAILY 20 SURESHOT SIGNALS
         </div>
         
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="feature-text">High Accuracy</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                <div class="feature-text">24/7 Support</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-star"></i></div>
+                <div class="feature-text">Premium Signals</div>
+            </div>
+        </div>
+        
         <p>
-            Join our premium signals channel for high accuracy <span class="highlight">QUOTEX</span> binary options trading signals
+            Join our premium Quotex signals channel for high accuracy binary options trading signals
         </p>
         
         <a href="https://t.me/jcwintraders" class="telegram-btn">
-            <i class="fab fa-telegram telegram-icon"></i> JOIN TELEGRAM
+            <i class="fab fa-telegram telegram-icon"></i> JOIN TELEGRAM NOW
         </a>
     </div>
 </body>
