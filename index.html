@@ -201,9 +201,16 @@
             Join our premium Quotex signals channel for high accuracy binary options trading signals
         </p>
         
-        <a href="https://t.me/jcwintraders" class="telegram-btn">
+        <a id="telegram-cta" href="https://t.me/jcwintraders" class="telegram-btn" onclick="fbq('track', 'Lead');">
             <i class="fab fa-telegram telegram-icon"></i> JOIN TELEGRAM NOW
         </a>
     </div>
+
+    <script>
+        // Additional tracking if needed
+        document.getElementById('telegram-cta').addEventListener('click', function() {
+            fbq('track', 'InitiateCheckout');
+        });
+    </script>
 </body>
 </html>
