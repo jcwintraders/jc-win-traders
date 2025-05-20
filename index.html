@@ -1,491 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JC WIN TRADERS | Learn Smart Trading Strategies</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Favicon for most devices -->
-  <link rel="icon" type="image/png" href="https://telegram.org/favicon.ico" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://telegram.org/favicon.ico" sizes="16x16">
-
-  <!-- Apple Touch Icon -->
-  <link rel="apple-touch-icon" href="https://telegram.org/favicon.ico">
-
-  <!-- For Windows Metro -->
-  <meta name="msapplication-TileImage" content="https://telegram.org/favicon.ico">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-      color: #1e293b;
-      line-height: 1.6;
-      padding-top: 60px; /* Offset for sticky bar */
-    }
-
-    /* 🔥 STICKY TELEGRAM BAR (ALWAYS VISIBLE) */
-    .sticky-cta {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(90deg, #0088CC, #26A5E4);
-      color: white;
-      padding: 12px 20px;
-      text-align: center;
-      z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0, 136, 204, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      animation: pulse 2s infinite;
-      border-bottom: 3px solid rgba(255, 255, 255, 0.2);
-    }
-    .sticky-cta a {
-      color: white;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    }
-    .sticky-cta i {
-      font-size: 1.3rem;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 4px 20px rgba(0, 136, 204, 0.5); }
-      50% { transform: scale(1.02); box-shadow: 0 4px 30px rgba(0, 136, 204, 0.7); }
-      100% { transform: scale(1); box-shadow: 0 4px 20px rgba(0, 136, 204, 0.5); }
-    }
-
-    header {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      color: white;
-      padding: 5rem 1rem 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 5px solid #f59e0b;
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover;
-      opacity: 0.15;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      position: relative;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-    header p {
-      font-size: 1.3rem;
-      opacity: 0.95;
-      position: relative;
-      font-weight: 300;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    section {
-      padding: 3rem 1rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .intro h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      color: #2563eb;
-      background: linear-gradient(90deg, #2563eb, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-    }
-    .intro p {
-      font-size: 1.2rem;
-      color: #475569;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-    .card {
-      background: white;
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
-      border: 2px solid #e2e8f0;
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(to bottom, #3b82f6, #10b981);
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      border-color: #93c5fd;
-    }
-    .card h3 {
-      font-size: 1.6rem;
-      color: #2563eb;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .card h3 i {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #3b82f6, #6366f1);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
-    }
-    .card p {
-      font-size: 1.05rem;
-      color: #475569;
-      line-height: 1.7;
-    }
-
-    /* 🎨 MODERN TELEGRAM BUTTONS */
-    .cta {
-      text-align: center;
-      margin: 4rem 0;
-    }
-    .cta h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #1e40af;
-    }
-    .cta p {
-      font-size: 1.2rem;
-      color: #475569;
-      margin-bottom: 2rem;
-    }
-    .cta-grid {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .telegram-btn {
-      background: linear-gradient(90deg, #0088CC, #26A5E4);
-      color: white;
-      padding: 1.2rem 2.5rem;
-      font-size: 1.2rem;
-      text-decoration: none;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
-      font-weight: 700;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    .telegram-btn::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
-      transform: rotate(30deg);
-      transition: all 0.3s;
-    }
-    .telegram-btn:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 10px 30px rgba(0, 136, 204, 0.6);
-    }
-    .telegram-btn:hover::before {
-      left: 100%;
-    }
-    .telegram-btn i {
-      font-size: 1.5rem;
-    }
-
-    .testimonial {
-      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-      padding: 3rem;
-      border-radius: 16px;
-      margin: 3rem 0;
-      text-align: center;
-      font-style: italic;
-      color: #334155;
-      border-left: 5px solid #3b82f6;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      position: relative;
-    }
-    .testimonial::before {
-      content: """;
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 5rem;
-      color: rgba(59, 130, 246, 0.1);
-      font-family: serif;
-      line-height: 1;
-    }
-    .testimonial p:first-of-type {
-      font-size: 1.3rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    .testimonial p:last-of-type {
-      font-weight: 700;
-      color: #1e40af;
-    }
-
-    footer {
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      color: #e2e8f0;
-      padding: 4rem 1rem;
-      text-align: center;
-      margin-top: 5rem;
-      border-top: 5px solid #3b82f6;
-    }
-    footer p {
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-    footer a {
-      color: #93c5fd;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    footer a:hover {
-      color: white;
-      text-decoration: underline;
-    }
-    .disclaimer {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
-      border-radius: 12px;
-      margin: 2rem auto 0;
-      font-size: 0.9rem;
-      text-align: center;
-      max-width: 800px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .disclaimer p {
-      margin-bottom: 0;
-    }
-
-    /* Animated border for special cards */
-    .special-card {
-      position: relative;
-      overflow: hidden;
-      border: none;
-    }
-    .special-card::after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        to bottom right,
-        rgba(59, 130, 246, 0) 0%,
-        rgba(59, 130, 246, 0) 45%,
-        rgba(59, 130, 246, 0.5) 50%,
-        rgba(59, 130, 246, 0) 55%,
-        rgba(59, 130, 246, 0) 100%
-      );
-      transform: rotate(30deg);
-      animation: shine 3s infinite;
-    }
-    @keyframes shine {
-      0% { left: -50%; }
-      100% { left: 150%; }
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5rem;
-      }
-      header p {
-        font-size: 1.1rem;
-      }
-      .intro h2 {
-        font-size: 2rem;
-      }
-      .card {
-        padding: 2rem;
-      }
-      .telegram-btn {
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
-      }
-      .testimonial {
-        padding: 2rem 1rem;
-      }
-    }
-  </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17084571518">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17084571518');
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JC WIN Traders - Daily Sureshot Signals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Montserrat:wght@600&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 30px rgba(0, 212, 255, 0.4);
+            }
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 900;
+            background: linear-gradient(45deg, #00d4ff, #0084ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+        
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00d4ff, #0084ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            background: #0088cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
+        }
+        
+        .telegram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 136, 204, 0.6);
+            background: #0077b3;
+        }
+        
+        .telegram-icon {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+    </style>
 </head>
 <body>
-
-  <!-- 🔥 STICKY TELEGRAM BAR (ALWAYS VISIBLE) -->
-  <div class="sticky-cta">
-    <a href="https://t.me/jcwintraders" target="_blank">
-      <i class="fab fa-telegram"></i> 
-      <span>JOIN NOW for Free Market Insights!</span>
-    </a>
-  </div>
-
-  <header>
-    <h1>JC WIN TRADERS</h1>
-    <p>Master Trading Strategies | Professional Market Analysis & Risk Management</p>
-  </header>
-
-  <section class="intro">
-    <h2>Trade Smarter, Not Harder</h2>
-    <p>Join our thriving community to learn how to analyze markets like a professional trader. No "get rich quick" schemes—just real, actionable education that works.</p>
-  </section>
-
-  <!-- 🎨 TELEGRAM CTA SECTION -->
-  <div class="cta">
-    <h3>Ready to Transform Your Trading?</h3>
-    <p>Join <strong>350+ successful traders</strong> learning together for free:</p>
-    
-    <div class="cta-grid">
-      <a href="https://t.me/jcwintraders" class="telegram-btn" target="_blank">
-        <i class="fab fa-telegram"></i> Join Telegram Group
-      </a>
-      <a href="https://t.me/jcwintraders" class="telegram-btn" style="background: linear-gradient(90deg, #10b981, #34d399);" target="_blank">
-        <i class="fas fa-book-open"></i> Learn Trading Basics
-      </a>
+    <div class="container">
+        <div class="icon">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <h1>JC WIN TRADERS</h1>
+        <p>Daily 20 Sureshot Signals</p>
+        <a href="https://t.me/jcwintraders" class="telegram-btn">
+            <i class="fab fa-telegram telegram-icon"></i> Join Telegram
+        </a>
     </div>
-    <p style="margin-top: 1.5rem; font-size: 1rem; color: #64748b;">
-      <i class="fas fa-lock" style="color: #10b981;"></i> No spam. Unsubscribe anytime.
-    </p>
-  </div>
-
-  <section>
-    <div class="features">
-      <div class="card special-card">
-        <h3><i class="fas fa-chart-line"></i> Morning Analysis</h3>
-        <p>Get daily insights on key levels, trends, and potential trading opportunities with our comprehensive market breakdowns.</p>
-      </div>
-      <div class="card special-card">
-        <h3><i class="fas fa-moon"></i> Evening Review</h3>
-        <p>Understand how global markets moved during the day and what it means for your next trading session with our expert analysis.</p>
-      </div>
-      <div class="card special-card">
-        <h3><i class="fas fa-graduation-cap"></i> Platform Guides</h3>
-        <p>Master your trading platform with our detailed guides focused on risk management, strategy implementation, and technical tools.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="testimonial">
-      <p>"JC WIN TRADERS completely transformed my approach to trading. Their analysis taught me how to read charts properly—I no longer trade blindly. My consistency and profitability have improved dramatically!"</p>
-      <p><strong>– Mark T., Professional Trader since 2021</strong></p>
-    </div>
-  </section>
-
-  <!-- SECOND CTA SECTION -->
-  <div class="cta" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 3rem 1rem; border-radius: 16px; border: 2px dashed #3b82f6;">
-    <h3 style="color: #2563eb;">Don't Miss Out on Market Opportunities</h3>
-    <p style="color: #475569; max-width: 700px; margin: 0 auto 2rem;">Join now and start receiving our premium trading insights completely free:</p>
-    
-    <div class="cta-grid">
-      <a href="https://t.me/jcwintraders" class="telegram-btn" style="background: linear-gradient(90deg, #f59e0b, #fbbf24);" target="_blank">
-        <i class="fab fa-telegram"></i> Join Free Telegram Channel
-      </a>
-    </div>
-    <div style="background: #f8f9fa; border-left: 4px solid #dc3545; padding: 12px; margin: 15px 0; font-size: 14px; border-radius: 4px;">
-⚠️ <strong>Disclaimer:</strong> Not SEBI-registered. No financial advice. Trading risks capital.
-    </div>
-  </div>
-
-  <footer>
-    <p><i class="fas fa-chart-line" style="color: #3b82f6;"></i> JC WIN TRADERS © 2025 | Professional Trading Education</p>
-    <p style="margin-top: 1.5rem;">
-      <a href="https://t.me/jcwintraders" target="_blank"><i class="fab fa-telegram"></i> Telegram</a> | 
-      <a href="mailto:malowtrader@gmail.com"><i class="fas fa-envelope"></i> Email Us</a>
-    </p>
-    
-    <div class="disclaimer">
-      <p><strong>Disclaimer:</strong> We do not provide financial advice. Trading carries substantial risk of loss and is not suitable for every investor. Our content is for educational purposes only. JC WIN TRADERS is not affiliated with any brokerage or financial institution.</p>
-    </div>
-  </footer>
-<script>
-document.addEventListener('mouseout', function(e) {
-  if (e.clientY < 0) { // Triggers when mouse leaves top of screen
-    document.getElementById('exit-popup').style.display = 'block';
-  }
-});
-</script>
-
-<!-- Popup HTML -->
-<div id="exit-popup" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.8); z-index:9999; padding:20px;">
-  <div style="background:white; max-width:400px; margin:10% auto; padding:25px; border-radius:12px; text-align:center; border:3px solid #0088cc;">
-    <h3 style="color:#2563eb;">Wait! Get Free Trading Lessons</h3>
-    <p>Join 350+ traders learning technical analysis in our Telegram group:</p>
-    <a href="https://t.me/jcwintraders" target="_blank" style="background:#0088cc; color:white; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:15px;">
-      <i class="fab fa-telegram"></i> Join Telegram Group
-    </a>
-    <p style="font-size:12px; margin-top:15px; color:#64748b;">
-      <i class="fas fa-lock"></i> No spam. Unsubscribe anytime.
-    </p>
-    <button onclick="document.getElementById('exit-popup').style.display='none'" style="background:none; border:none; position:absolute; top:10px; right:10px; font-size:20px; cursor:pointer;">×</button>
-    
-    <!-- Disclaimer -->
-    <div style="background:#f8f9fa; border-left:3px solid #dc3545; padding:8px; margin-top:15px; font-size:12px; text-align:left;">
-      <strong>⚠️ Disclaimer:</strong> Educational content only. Not SEBI-registered.
-    </div>
-  </div>
-</div>
 </body>
 </html>
