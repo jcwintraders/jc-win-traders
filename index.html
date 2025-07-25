@@ -1,212 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JC WIN TRADERS</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Montserrat:wght@600&display=swap');
-        
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #0f0c29, #302b63);
-            font-family: 'Poppins', sans-serif;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 400px;
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: pulse 2.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 15px rgba(100, 65, 255, 0.5); }
-            50% { box-shadow: 0 0 25px rgba(100, 65, 255, 0.8); }
-            100% { box-shadow: 0 0 15px rgba(100, 65, 255, 0.5); }
-        }
-        
-        .logo-container {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid rgba(106, 17, 203, 0.5);
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .logo-img {
-            width: 80%;
-            height: auto;
-            object-fit: contain;
-        }
-        
-        h1 {
-            font-size: 1.8rem;
-            margin: 10px 0 5px;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            background: linear-gradient(45deg, #6a11cb, #2575fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .highlight {
-            color: #6a11cb;
-            font-weight: 800;
-            text-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
-        }
-        
-        p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            margin: 25px 0 30px;
-            color: #e0e0e0;
-            line-height: 1.5;
-        }
-        
-        .telegram-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 35px;
-            background: linear-gradient(45deg, #0088cc, #00aced);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 136, 204, 0.5);
-            border: none;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        
-        .telegram-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 136, 204, 0.7);
-            background: linear-gradient(45deg, #0077b3, #0095d9);
-        }
-        
-        .telegram-icon {
-            margin-right: 10px;
-            font-size: 1.4rem;
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 8px 15px;
-            background: rgba(106, 17, 203, 0.2);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin: 10px 0 20px;
-            border: 1px solid #6a11cb;
-            color: #d9a3ff;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-        
-        .features {
-            display: flex;
-            justify-content: space-around;
-            margin: 25px 0;
-        }
-        
-        .feature {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .feature-icon {
-            font-size: 1.5rem;
-            color: #6a11cb;
-            margin-bottom: 5px;
-        }
-        
-        .feature-text {
-            font-size: 0.8rem;
-            color: #b8b8b8;
-            font-family: 'Montserrat', sans-serif;
-        }
-    </style>
-<script>
-  fbq('track', 'ViewContent');
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JC WIN TRADERS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Montserrat:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 400px;
+      padding: 30px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      border-radius: 25px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(100, 65, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 20px rgba(100, 65, 255, 0.4); }
+      50% { box-shadow: 0 0 35px rgba(100, 65, 255, 0.8); }
+      100% { box-shadow: 0 0 20px rgba(100, 65, 255, 0.4); }
+    }
+
+    .logo-container {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(106, 17, 203, 0.5);
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(106, 17, 203, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-img {
+      width: 80%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 10px 0 5px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .highlight {
+      color: #6a11cb;
+      font-weight: 800;
+      text-shadow: 0 0 12px rgba(106, 17, 203, 0.6);
+    }
+
+    p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      margin: 25px 0 30px;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 35px;
+      background: linear-gradient(45deg, #0088cc, #00aced);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 136, 204, 0.6);
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .telegram-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 136, 204, 0.8);
+      background: linear-gradient(45deg, #0077b3, #00bfff);
+    }
+
+    .telegram-icon {
+      margin-right: 10px;
+      font-size: 1.4rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 18px;
+      background: rgba(106, 17, 203, 0.2);
+      border-radius: 20px;
+      font-size: 0.95rem;
+      margin: 10px 0 20px;
+      border: 1px solid #6a11cb;
+      color: #d9a3ff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(106, 17, 203, 0.2);
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      margin: 25px 0;
+    }
+
+    .feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: scale(1.1);
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      color: #a970ff;
+      margin-bottom: 6px;
+      text-shadow: 0 0 6px rgba(106, 17, 203, 0.4);
+    }
+
+    .feature-text {
+      font-size: 0.8rem;
+      color: #d0cfe6;
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+  <script>
+    fbq('track', 'ViewContent');
+  </script>
 </head>
 <body>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '9701107916683633');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=9701107916683633&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-    <div class="container">
-        <div class="logo-container">
-            <img src="https://raw.githubusercontent.com/jcwintraders/jc-win-traders/refs/heads/main/jcwinlogo.png" alt="JC WIN Traders Logo" class="logo-img">
-        </div>
-        
-        <h1>JC WIN TRADERS</h1>
-        
-        <div class="badge">
-            <i class="fas fa-bolt"></i> BEST QUOTEX SIGNALS PROVIDER
-        </div>
-        
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                <div class="feature-text">High Accuracy</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                <div class="feature-text">24/7 Support</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-star"></i></div>
-                <div class="feature-text">Premium Signals</div>
-            </div>
-        </div>
-        
-        <p>
-            Daily 20 Quotex Signals
-        </p>
-        
-        <a id="telegram-cta" href="https://t.me/+3iIHNmKjNNJjOTBl" class="telegram-btn" onclick="fbq('track', 'Lead');">
-            <i class="fab fa-telegram telegram-icon"></i> JOIN TELEGRAM NOW
-        </a>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '9701107916683633');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=9701107916683633&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <div class="container">
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/jcwintraders/jc-win-traders/refs/heads/main/jcwinlogo.png" alt="JC WIN Traders Logo" class="logo-img">
     </div>
+
+    <h1>JC WIN TRADERS</h1>
+
+    <div class="badge">
+      <i class="fas fa-bolt"></i> BEST QUOTEX SIGNALS PROVIDER
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="feature-text">High Accuracy</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+        <div class="feature-text">24/7 Support</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><i class="fas fa-star"></i></div>
+        <div class="feature-text">Premium Signals</div>
+      </div>
+    </div>
+
+    <p>
+      Daily 10+ Quotex Signals
+    </p>
+
+    <a id="telegram-cta" href="https://t.me/+3iIHNmKjNNJjOTBl" class="telegram-btn" onclick="fbq('track', 'Lead');">
+      <i class="fab fa-telegram telegram-icon"></i> JOIN TELEGRAM NOW
+    </a>
+  </div>
 </body>
 </html>
