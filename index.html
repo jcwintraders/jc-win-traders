@@ -34,6 +34,35 @@
       overflow-x: hidden;
     }
 
+    /* ─── top telegram banner ─── */
+    .tg-top-bar {
+      width: 100%;
+      background: linear-gradient(90deg, #1a7ab5 0%, #229ED9 50%, #1a7ab5 100%);
+      background-size: 200% 100%;
+      animation: tgSlide 3s linear infinite;
+      padding: 11px 16px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      text-decoration: none;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 20px rgba(34,158,217,.4);
+    }
+    @keyframes tgSlide {
+      0%   { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+    .tg-top-bar svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
+    .tg-top-bar span {
+      color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .3px;
+    }
+    .tg-top-bar .arrow {
+      background: rgba(255,255,255,.2);
+      border-radius: 50px;
+      padding: 3px 10px;
+      font-size: 11px; font-weight: 700; color: #fff;
+      letter-spacing: .5px; text-transform: uppercase;
+      margin-left: 4px;
+    }
+
     /* ─── animated mesh background ─── */
     body::before {
       content: '';
@@ -65,21 +94,15 @@
       animation: fadeDown .7s ease both;
     }
     .logo-wrap {
-      width: 64px; height: 64px; flex-shrink: 0;
+      width: 68px; height: 68px; flex-shrink: 0;
       border-radius: 50%;
       border: 2.5px solid var(--accent);
-      box-shadow: 0 0 18px var(--glow);
+      box-shadow: 0 0 22px var(--glow), 0 0 6px rgba(245,200,66,.3);
       overflow: hidden;
-      background: #1a1e35;
+      background: #111427;
       display: flex; align-items: center; justify-content: center;
     }
-    .logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
-    .logo-placeholder {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px; letter-spacing: 1px;
-      color: var(--gold);
-      text-align: center; line-height: 1.1;
-    }
+    .logo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-text h1 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(24px, 7vw, 34px);
@@ -279,13 +302,21 @@
 </head>
 <body>
 
+<!-- TOP TELEGRAM BAR -->
+<a href="https://t.me/+wibsIYQebxk5NWE1" target="_blank" rel="noopener noreferrer" class="tg-top-bar">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+  </svg>
+  <span>🎯 Join JC Win Traders on Telegram — Free Signals Daily!</span>
+  <span class="arrow">Join →</span>
+</a>
+
 <div class="page">
 
   <!-- Hero strip -->
   <div class="hero-strip">
     <div class="logo-wrap">
-      <!-- Replace src with actual logo URL if hosted -->
-      <div class="logo-placeholder">JC<br>WIN</div>
+      <img src="https://raw.githubusercontent.com/jcwintraders/jc-win-traders/refs/heads/main/jcwintraderslogo.png" alt="JC Win Traders Logo" />
     </div>
     <div class="hero-text">
       <h1>JC Win Traders</h1>
@@ -356,7 +387,7 @@
     </div>
 
     <!-- CTA -->
-    <a href="https://t.me/jcwintraders" target="_blank" rel="noopener noreferrer" class="cta" id="mainCta">
+    <a href="https://t.me/+wibsIYQebxk5NWE1" target="_blank" rel="noopener noreferrer" class="cta" id="mainCta">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
       </svg>
@@ -392,7 +423,7 @@
       Join our free Telegram channel and get <strong style="color:#f5c842;">real-time Quotex signals</strong>
       — two sessions every day, completely free.
     </p>
-    <a href="https://t.me/jcwintraders" target="_blank" rel="noopener noreferrer" class="cta">
+    <a href="https://t.me/+wibsIYQebxk5NWE1" target="_blank" rel="noopener noreferrer" class="cta">
       <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;">
         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
       </svg>
