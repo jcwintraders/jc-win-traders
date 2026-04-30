@@ -1,230 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JC WIN TRADERS</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JC Win Traders – Quotex Signals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Montserrat:wght@600&display=swap');
+    :root {
+      --bg-deep:    #0b0d17;
+      --bg-card:    #13162a;
+      --accent:     #e8304a;
+      --accent2:    #ff6b35;
+      --gold:       #f5c842;
+      --text:       #eef0f8;
+      --muted:      #8a8faa;
+      --border:     rgba(232,48,74,.25);
+      --glow:       rgba(232,48,74,.45);
+      --tg:         #2aabee;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #0f0c29, #302b63);
-      font-family: 'Poppins', sans-serif;
-      color: white;
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text);
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
       overflow-x: hidden;
     }
 
-    .container {
-      width: 90%;
-      max-width: 400px;
-      padding: 30px 20px;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(16px);
-      border-radius: 25px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 0, 64, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      animation: pulse 2.5s infinite;
+    /* ─── animated mesh background ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(232,48,74,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(42,171,238,.12) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(245,200,66,.06) 0%, transparent 60%);
+      animation: meshMove 12s ease-in-out infinite alternate;
+    }
+    @keyframes meshMove {
+      from { opacity: .7; transform: scale(1); }
+      to   { opacity: 1;  transform: scale(1.04); }
     }
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 20px rgba(255, 0, 64, 0.4); }
-      50% { box-shadow: 0 0 35px rgba(255, 0, 64, 0.9); }
-      100% { box-shadow: 0 0 20px rgba(255, 0, 64, 0.4); }
+    /* ─── wrapper ─── */
+    .page {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 0 16px 80px;
     }
 
-    .logo-container {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 15px;
+    /* ─── hero strip ─── */
+    .hero-strip {
+      width: 100%; max-width: 480px;
+      display: flex; align-items: center; gap: 12px;
+      padding: 20px 0 14px;
+      animation: fadeDown .7s ease both;
+    }
+    .logo-wrap {
+      width: 64px; height: 64px; flex-shrink: 0;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid rgba(255, 0, 64, 0.5);
+      border: 2.5px solid var(--accent);
+      box-shadow: 0 0 18px var(--glow);
       overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 0, 64, 0.3);
-      transition: transform 0.3s ease;
+      background: #1a1e35;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .logo-placeholder {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px; letter-spacing: 1px;
+      color: var(--gold);
+      text-align: center; line-height: 1.1;
+    }
+    .hero-text h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(24px, 7vw, 34px);
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #fff 0%, var(--gold) 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .hero-text p {
+      font-size: 12px; font-weight: 500; letter-spacing: .5px;
+      color: var(--accent); margin-top: 4px; text-transform: uppercase;
     }
 
-    .logo-container:hover {
-      transform: scale(1.05);
-    }
-
-    .logo-img {
-      width: 80%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin: 10px 0 5px;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-      background: linear-gradient(45deg, #ff0033, #ff4d4d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .highlight {
-      color: #ff0033;
-      font-weight: 800;
-      text-shadow: 0 0 12px rgba(255, 0, 64, 0.6);
-    }
-
-    p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      margin: 25px 0 30px;
-      color: #ffe6e6;
-      line-height: 1.6;
-    }
-
-    .telegram-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 35px;
-      background: linear-gradient(45deg, #d60000, #ff3333);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(255, 51, 51, 0.6);
-      border: none;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    .telegram-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(255, 51, 51, 0.8);
-      background: linear-gradient(45deg, #c40000, #ff4d4d);
-    }
-
-    .telegram-icon {
-      margin-right: 10px;
-      font-size: 1.4rem;
-    }
-
+    /* ─── badge ─── */
     .badge {
-      display: inline-block;
-      padding: 10px 18px;
-      background: rgba(255, 0, 64, 0.2);
-      border-radius: 20px;
-      font-size: 0.95rem;
-      margin: 10px 0 20px;
-      border: 1px solid #ff0033;
-      color: #ffc2cc;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      box-shadow: 0 2px 10px rgba(255, 0, 64, 0.2);
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50px;
+      padding: 7px 18px;
+      font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--accent);
+      margin: 6px 0 18px;
+      animation: fadeUp .7s .15s ease both;
+    }
+    .badge svg { width: 14px; height: 14px; fill: var(--accent); }
+
+    /* ─── main card ─── */
+    .card {
+      width: 100%; max-width: 480px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px 24px 28px;
+      box-shadow: 0 4px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.04) inset;
+      animation: fadeUp .7s .25s ease both;
     }
 
-    .features {
-      display: flex;
-      justify-content: space-around;
-      margin: 25px 0;
+    /* ─── stats row ─── */
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin-bottom: 28px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px;
+      padding: 14px 8px;
+      text-align: center;
+      transition: transform .2s, border-color .2s;
+    }
+    .stat-box:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .stat-icon { font-size: 22px; margin-bottom: 6px; }
+    .stat-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px; color: var(--gold); line-height: 1;
+    }
+    .stat-lbl { font-size: 10px; color: var(--muted); margin-top: 3px; letter-spacing: .4px; text-transform: uppercase; }
+
+    /* ─── headline ─── */
+    .card-headline {
+      text-align: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(22px, 6vw, 30px);
+      letter-spacing: 1.5px;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .card-sub {
+      text-align: center;
+      font-size: 13.5px; color: var(--muted);
+      line-height: 1.6; margin-bottom: 28px;
+    }
+    .card-sub strong { color: var(--text); }
+
+    /* ─── feature list ─── */
+    .features { list-style: none; margin-bottom: 30px; display: flex; flex-direction: column; gap: 10px; }
+    .features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13.5px; line-height: 1.5;
+    }
+    .features li .icon {
+      width: 26px; height: 26px; flex-shrink: 0;
+      border-radius: 8px;
+      background: rgba(232,48,74,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
     }
 
-    .feature {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.3s ease;
+    /* ─── disclaimer ─── */
+    .disclaimer {
+      background: rgba(245,200,66,.07);
+      border-left: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 11.5px; color: #b0b4c8;
+      line-height: 1.6; margin-bottom: 28px;
+    }
+    .disclaimer strong { color: var(--gold); }
+
+    /* ─── CTA button ─── */
+    .cta {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%;
+      padding: 17px 24px;
+      background: linear-gradient(135deg, #229ED9 0%, #1a86b8 100%);
+      border: none; border-radius: 50px;
+      color: #fff; font-family: 'Outfit', sans-serif;
+      font-size: 16px; font-weight: 700; letter-spacing: .4px;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 6px 28px rgba(34,158,217,.4);
+      transition: transform .18s, box-shadow .18s;
+      position: relative; overflow: hidden;
+    }
+    .cta::after {
+      content: '';
+      position: absolute; top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+      animation: shimmer 2.5s infinite;
+    }
+    @keyframes shimmer { to { left: 160%; } }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(34,158,217,.55); }
+    .cta:active { transform: scale(.98); }
+    .cta svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+
+    .cta-note { text-align: center; font-size: 11px; color: var(--muted); margin-top: 10px; }
+
+    /* ─── trust row ─── */
+    .trust {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 11.5px; color: var(--muted);
+    }
+    .trust-item span { font-size: 15px; }
+
+    /* ─── exit popup ─── */
+    #exit-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(7,9,20,.82);
+      backdrop-filter: blur(6px);
+      display: none; align-items: center; justify-content: center;
+      padding: 16px;
+    }
+    #exit-overlay.show { display: flex; }
+    .exit-modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 32px 24px 28px;
+      max-width: 400px; width: 100%;
+      text-align: center;
+      box-shadow: 0 12px 60px rgba(0,0,0,.7);
+      animation: popIn .35s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.85); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .exit-modal .em { font-size: 48px; margin-bottom: 10px; }
+    .exit-modal h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px; letter-spacing: 1.5px;
+      margin-bottom: 8px; color: #fff;
+    }
+    .exit-modal p { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
+    .exit-modal .cta { margin-bottom: 12px; }
+    .exit-close {
+      background: none; border: none;
+      color: var(--muted); font-size: 12px; cursor: pointer;
+      text-decoration: underline;
+    }
+    .exit-close:hover { color: var(--text); }
+
+    /* ─── animations ─── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    .feature:hover {
-      transform: scale(1.1);
+    /* ─── footer ─── */
+    footer {
+      margin-top: 32px; text-align: center;
+      font-size: 11px; color: var(--muted); line-height: 1.7;
+      max-width: 480px;
     }
-
-    .feature-icon {
-      font-size: 1.5rem;
-      color: #ff4d4d;
-      margin-bottom: 6px;
-      text-shadow: 0 0 6px rgba(255, 0, 64, 0.4);
-    }
-
-    .feature-text {
-      font-size: 0.8rem;
-      color: #fdd;
-      font-family: 'Montserrat', sans-serif;
-    }
+    footer a { color: var(--muted); text-decoration: underline; }
   </style>
-  <script>
-    fbq('track', 'ViewContent');
-  </script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '9701107916683633');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=9701107916683633&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
-  <div class="container">
-    <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/jcwintraders/jc-win-traders/refs/heads/main/jcwintraderslogo.png" alt="JC WIN Traders Logo" class="logo-img">
+<div class="page">
+
+  <!-- Hero strip -->
+  <div class="hero-strip">
+    <div class="logo-wrap">
+      <!-- Replace src with actual logo URL if hosted -->
+      <div class="logo-placeholder">JC<br>WIN</div>
+    </div>
+    <div class="hero-text">
+      <h1>JC Win Traders</h1>
+      <p>⚡ Quotex Signals Provider</p>
+    </div>
+  </div>
+
+  <!-- Badge -->
+  <div class="badge">
+    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    Best Quotex Signals Provider
+  </div>
+
+  <!-- Main card -->
+  <div class="card">
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-box">
+        <div class="stat-icon">📊</div>
+        <div class="stat-val">2x</div>
+        <div class="stat-lbl">Daily<br>Sessions</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon">🕐</div>
+        <div class="stat-val">24/7</div>
+        <div class="stat-lbl">Support<br>Available</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon">🏆</div>
+        <div class="stat-val">Premium</div>
+        <div class="stat-lbl">High-Quality<br>Signals</div>
+      </div>
     </div>
 
-    <h1>JC WIN TRADERS</h1>
-
-    <div class="badge">
-      <i class="fas fa-bolt"></i> BEST QUOTEX SIGNALS PROVIDER
-    </div>
-
-    <a id="telegram-cta" href="https://t.me/+wibsIYQebxk5NWE1" class="telegram-btn" onclick="fbq('track', 'Lead');">
-      <i class="fab fa-telegram telegram-icon"></i> JOIN TELEGRAM NOW
-    </a>
-
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-        <div class="feature-text">DAILY 2 SESSIONS</div>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><i class="fas fa-clock"></i></div>
-        <div class="feature-text">24/7 Support</div>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><i class="fas fa-star"></i></div>
-        <div class="feature-text">High Accuracy & Premium Signals</div>
-      </div>
-    </div>
-
-    <p>
-      ONE OF THE BEST QUOTEX SIGNAL PROVIDER
+    <!-- Headline -->
+    <h2 class="card-headline">Trade Smarter.<br>Win Consistently.</h2>
+    <p class="card-sub">
+      Join thousands of traders accessing <strong>real-time Quotex signals</strong>
+      directly on Telegram — no delay, no fluff.
     </p>
 
-    <a id="telegram-cta" href="https://t.me/+wibsIYQebxk5NWE1" class="telegram-btn" onclick="fbq('track', 'Lead');">
-      <i class="fab fa-telegram telegram-icon"></i> JOIN TELEGRAM NOW
+    <!-- Feature list -->
+    <ul class="features">
+      <li>
+        <span class="icon">⚡</span>
+        <span><strong>Real-Time Signals</strong> — Entry, expiry, and asset delivered instantly.</span>
+      </li>
+      <li>
+        <span class="icon">📈</span>
+        <span><strong>Two Daily Sessions</strong> — Morning & evening trade setups, every day.</span>
+      </li>
+      <li>
+        <span class="icon">💬</span>
+        <span><strong>Active Community</strong> — Ask questions, share results, grow together.</span>
+      </li>
+      <li>
+        <span class="icon">🎓</span>
+        <span><strong>Educational Tips</strong> — Learn the reasoning behind every signal.</span>
+      </li>
+    </ul>
+
+    <!-- Disclaimer (required for Meta Ads compliance) -->
+    <div class="disclaimer">
+      <strong>⚠️ Risk Disclaimer:</strong> Trading involves substantial risk of loss. Signals are for
+      informational and educational purposes only and do not constitute financial advice. Past
+      performance is not indicative of future results. Only trade with capital you can afford to lose.
+    </div>
+
+    <!-- CTA -->
+    <a href="https://t.me/jcwintraders" target="_blank" rel="noopener noreferrer" class="cta" id="mainCta">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+      </svg>
+      Join Our Telegram Channel
     </a>
+    <p class="cta-note">Free to join · No spam · Leave anytime</p>
+
+    <!-- Trust signals -->
+    <div class="trust">
+      <div class="trust-item"><span>🔒</span> Secure & Free</div>
+      <div class="trust-item"><span>✅</span> No Hidden Fees</div>
+      <div class="trust-item"><span>📱</span> Works on All Devices</div>
+    </div>
 
   </div>
+
+  <footer>
+    <p>© 2025 JC Win Traders. All rights reserved.</p>
+    <p style="margin-top:6px;">
+      <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      Trading carries risk. This is not financial advice.
+    </p>
+  </footer>
+
+</div>
+
+<!-- Exit Intent Overlay -->
+<div id="exit-overlay">
+  <div class="exit-modal">
+    <div class="em">👋</div>
+    <h2>Wait! Don't Miss Out</h2>
+    <p>
+      Join our free Telegram channel and get <strong style="color:#f5c842;">real-time Quotex signals</strong>
+      — two sessions every day, completely free.
+    </p>
+    <a href="https://t.me/jcwintraders" target="_blank" rel="noopener noreferrer" class="cta">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;">
+        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+      </svg>
+      Join Telegram — It's Free
+    </a>
+    <button class="exit-close" onclick="closeExit()">No thanks, I'll skip for now</button>
+  </div>
+</div>
+
+<script>
+  // Exit-intent: desktop (mouse leaves top)
+  let exitShown = false;
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 0 && !exitShown) {
+      exitShown = true;
+      document.getElementById('exit-overlay').classList.add('show');
+    }
+  });
+
+  // Exit-intent: mobile (back button / visibility change after short delay)
+  let pageVisible = true;
+  let timer;
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden && !exitShown) {
+      exitShown = true;
+      pageVisible = false;
+    }
+  });
+
+  // Mobile: show popup after scroll up gesture simulation via scroll position tracking
+  let lastScrollY = window.scrollY;
+  let scrollUpCount = 0;
+  window.addEventListener('scroll', function() {
+    const currentY = window.scrollY;
+    if (currentY < lastScrollY) { scrollUpCount++; }
+    else { scrollUpCount = 0; }
+    if (scrollUpCount > 3 && currentY < 50 && !exitShown) {
+      exitShown = true;
+      document.getElementById('exit-overlay').classList.add('show');
+    }
+    lastScrollY = currentY;
+  });
+
+  function closeExit() {
+    document.getElementById('exit-overlay').classList.remove('show');
+  }
+
+  // Close on backdrop click
+  document.getElementById('exit-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeExit();
+  });
+</script>
+
 </body>
 </html>
