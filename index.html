@@ -434,46 +434,76 @@
 </div>
 
 <script>
-  // Exit-intent: desktop (mouse leaves top)
+  const overlay = document.getElementById('exit-overlay');
   let exitShown = false;
-  document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 0 && !exitShown) {
-      exitShown = true;
-      document.getElementById('exit-overlay').classList.add('show');
-    }
-  });
 
-  // Exit-intent: mobile (back button / visibility change after short delay)
-  let pageVisible = true;
-  let timer;
-  document.addEventListener('visibilitychange', function() {
-    if (document.hidden && !exitShown) {
-      exitShown = true;
-      pageVisible = false;
-    }
-  });
-
-  // Mobile: show popup after scroll up gesture simulation via scroll position tracking
-  let lastScrollY = window.scrollY;
-  let scrollUpCount = 0;
-  window.addEventListener('scroll', function() {
-    const currentY = window.scrollY;
-    if (currentY < lastScrollY) { scrollUpCount++; }
-    else { scrollUpCount = 0; }
-    if (scrollUpCount > 3 && currentY < 50 && !exitShown) {
-      exitShown = true;
-      document.getElementById('exit-overlay').classList.add('show');
-    }
-    lastScrollY = currentY;
-  });
+  function showExit() {
+    if (exitShown) return;
+    exitShown = true;
+    overlay.classList.add('show');
+  }
 
   function closeExit() {
-    document.getElementById('exit-overlay').classList.remove('show');
+    overlay.classList.remove('show');
   }
 
   // Close on backdrop click
-  document.getElementById('exit-overlay').addEventListener('click', function(e) {
+  overlay.addEventListener('click', function(e) {
     if (e.target === this) closeExit();
+  });
+
+  // ── DESKTOP: mouse leaves through the top of the viewport ──
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 10) showExit();
+  });
+
+  // ── MOBILE METHOD 1: Page becomes hidden (user switches app / pulls down nav bar) ──
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) showExit();
+  });
+
+  // ── MOBILE METHOD 2: Touch swipe — fast upward swipe from top area ──
+  let touchStartY = 0;
+  let touchStartTime = 0;
+  document.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY;
+    touchStartTime = Date.now();
+  }, { passive: true });
+
+  document.addEventListener('touchend', function(e) {
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaY = touchStartY - touchEndY;       // positive = swipe up
+    const deltaT = Date.now() - touchStartTime;   // ms
+    const velocity = deltaY / deltaT;             // px/ms
+
+    // Fast upward swipe (velocity > 0.6 px/ms) starting near the top 25% of screen
+    if (velocity > 0.6 && touchStartY < window.innerHeight * 0.25) {
+      showExit();
+    }
+  }, { passive: true });
+
+  // ── MOBILE METHOD 3: Scroll back to very top quickly (bounce / back gesture) ──
+  let lastScrollY = window.scrollY;
+  let scrollUpDist = 0;
+  window.addEventListener('scroll', function() {
+    const currentY = window.scrollY;
+    if (currentY < lastScrollY) {
+      scrollUpDist += (lastScrollY - currentY);
+    } else {
+      scrollUpDist = 0;
+    }
+    // User scrolled up 200px+ total and is near the top
+    if (scrollUpDist > 200 && currentY < 80) {
+      showExit();
+    }
+    lastScrollY = currentY;
+  }, { passive: true });
+
+  // ── MOBILE METHOD 4: Back button / popstate (Android back gesture) ──
+  history.pushState(null, '', location.href);
+  window.addEventListener('popstate', function() {
+    showExit();
+    history.pushState(null, '', location.href); // keep them on page
   });
 </script>
 
