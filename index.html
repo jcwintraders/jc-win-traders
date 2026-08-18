@@ -3,527 +3,296 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JC Win Traders – Quotex Signals</title>
+  <title>JC Win Traders – Free Quotex Signals</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --bg-deep:    #0b0d17;
-      --bg-card:    #13162a;
-      --accent:     #e8304a;
-      --accent2:    #ff6b35;
-      --gold:       #f5c842;
-      --text:       #eef0f8;
-      --muted:      #8a8faa;
-      --border:     rgba(232,48,74,.25);
-      --glow:       rgba(232,48,74,.45);
-      --tg:         #2aabee;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg-deep);
-      color: var(--text);
-      min-height: 100vh;
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: #0b0d17;
+      color: #fff;
       overflow-x: hidden;
     }
 
-    /* ─── top telegram banner ─── */
-    .tg-top-bar {
-      width: 100%;
-      background: linear-gradient(90deg, #1a7ab5 0%, #229ED9 50%, #1a7ab5 100%);
-      background-size: 200% 100%;
-      animation: tgSlide 3s linear infinite;
-      padding: 11px 16px;
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      text-decoration: none;
-      position: sticky; top: 0; z-index: 100;
-      box-shadow: 0 2px 20px rgba(34,158,217,.4);
-    }
-    @keyframes tgSlide {
-      0%   { background-position: 0% 0%; }
-      100% { background-position: 200% 0%; }
-    }
-    .tg-top-bar svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
-    .tg-top-bar span {
-      color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .3px;
-    }
-    .tg-top-bar .arrow {
-      background: rgba(255,255,255,.2);
-      border-radius: 50px;
-      padding: 3px 10px;
-      font-size: 11px; font-weight: 700; color: #fff;
-      letter-spacing: .5px; text-transform: uppercase;
-      margin-left: 4px;
+    /* ── full-screen layout ── */
+    .page {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px 48px;
+      position: relative;
     }
 
-    /* ─── animated mesh background ─── */
-    body::before {
+    /* subtle glow backdrop */
+    .page::before {
       content: '';
       position: fixed; inset: 0; z-index: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(232,48,74,.18) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(42,171,238,.12) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(245,200,66,.06) 0%, transparent 60%);
-      animation: meshMove 12s ease-in-out infinite alternate;
-    }
-    @keyframes meshMove {
-      from { opacity: .7; transform: scale(1); }
-      to   { opacity: 1;  transform: scale(1.04); }
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(34,158,217,.22) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 50% 100%, rgba(232,48,74,.14) 0%, transparent 60%);
+      pointer-events: none;
     }
 
-    /* ─── wrapper ─── */
-    .page {
+    .inner {
       position: relative; z-index: 1;
-      min-height: 100vh;
-      display: flex; flex-direction: column; align-items: center;
-      padding: 0 16px 80px;
-    }
-
-    /* ─── hero strip ─── */
-    .hero-strip {
-      width: 100%; max-width: 480px;
-      display: flex; align-items: center; gap: 12px;
-      padding: 20px 0 14px;
-      animation: fadeDown .7s ease both;
-    }
-    .logo-wrap {
-      width: 68px; height: 68px; flex-shrink: 0;
-      border-radius: 50%;
-      border: 2.5px solid var(--accent);
-      box-shadow: 0 0 22px var(--glow), 0 0 6px rgba(245,200,66,.3);
-      overflow: hidden;
-      background: #111427;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .logo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .hero-text h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(24px, 7vw, 34px);
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, #fff 0%, var(--gold) 80%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      line-height: 1;
-    }
-    .hero-text p {
-      font-size: 12px; font-weight: 500; letter-spacing: .5px;
-      color: var(--accent); margin-top: 4px; text-transform: uppercase;
-    }
-
-    /* ─── badge ─── */
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      border: 1.5px solid var(--accent);
-      border-radius: 50px;
-      padding: 7px 18px;
-      font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
-      color: var(--accent);
-      margin: 6px 0 18px;
-      animation: fadeUp .7s .15s ease both;
-    }
-    .badge svg { width: 14px; height: 14px; fill: var(--accent); }
-
-    /* ─── main card ─── */
-    .card {
-      width: 100%; max-width: 480px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 32px 24px 28px;
-      box-shadow: 0 4px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.04) inset;
-      animation: fadeUp .7s .25s ease both;
-    }
-
-    /* ─── stats row ─── */
-    .stats {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 12px; margin-bottom: 28px;
-    }
-    .stat-box {
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 14px;
-      padding: 14px 8px;
+      display: flex; flex-direction: column;
+      align-items: center;
       text-align: center;
-      transition: transform .2s, border-color .2s;
-    }
-    .stat-box:hover { transform: translateY(-3px); border-color: var(--accent); }
-    .stat-icon { font-size: 22px; margin-bottom: 6px; }
-    .stat-val {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 20px; color: var(--gold); line-height: 1;
-    }
-    .stat-lbl { font-size: 10px; color: var(--muted); margin-top: 3px; letter-spacing: .4px; text-transform: uppercase; }
-
-    /* ─── headline ─── */
-    .card-headline {
-      text-align: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(22px, 6vw, 30px);
-      letter-spacing: 1.5px;
-      line-height: 1.15;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-    .card-sub {
-      text-align: center;
-      font-size: 13.5px; color: var(--muted);
-      line-height: 1.6; margin-bottom: 28px;
-    }
-    .card-sub strong { color: var(--text); }
-
-    /* ─── feature list ─── */
-    .features { list-style: none; margin-bottom: 30px; display: flex; flex-direction: column; gap: 10px; }
-    .features li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 13.5px; line-height: 1.5;
-    }
-    .features li .icon {
-      width: 26px; height: 26px; flex-shrink: 0;
-      border-radius: 8px;
-      background: rgba(232,48,74,.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
-    }
-
-    /* ─── disclaimer ─── */
-    .disclaimer {
-      background: rgba(245,200,66,.07);
-      border-left: 3px solid var(--gold);
-      border-radius: 8px;
-      padding: 12px 14px;
-      font-size: 11.5px; color: #b0b4c8;
-      line-height: 1.6; margin-bottom: 28px;
-    }
-    .disclaimer strong { color: var(--gold); }
-
-    /* ─── CTA button ─── */
-    .cta {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
+      max-width: 400px;
       width: 100%;
-      padding: 17px 24px;
-      background: linear-gradient(135deg, #229ED9 0%, #1a86b8 100%);
-      border: none; border-radius: 50px;
-      color: #fff; font-family: 'Outfit', sans-serif;
-      font-size: 16px; font-weight: 700; letter-spacing: .4px;
-      cursor: pointer; text-decoration: none;
-      box-shadow: 0 6px 28px rgba(34,158,217,.4);
-      transition: transform .18s, box-shadow .18s;
-      position: relative; overflow: hidden;
+      gap: 0;
     }
-    .cta::after {
-      content: '';
-      position: absolute; top: 0; left: -100%;
-      width: 60%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
-      animation: shimmer 2.5s infinite;
+
+    /* ── logo ── */
+    .logo {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      border: 2.5px solid rgba(255,255,255,.15);
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 0 32px rgba(34,158,217,.35);
     }
-    @keyframes shimmer { to { left: 160%; } }
-    .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(34,158,217,.55); }
-    .cta:active { transform: scale(.98); }
-    .cta svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+    .logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    .cta-note { text-align: center; font-size: 11px; color: var(--muted); margin-top: 10px; }
+    /* ── headline ── */
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 14vw, 72px);
+      letter-spacing: 3px;
+      line-height: .95;
+      margin-bottom: 18px;
+      background: linear-gradient(160deg, #fff 40%, rgba(255,255,255,.55) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-    /* ─── trust row ─── */
-    .trust {
-      display: flex; align-items: center; justify-content: center; gap: 16px;
-      margin-top: 22px;
+    /* ── single benefit ── */
+    .benefit {
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(255,255,255,.65);
+      line-height: 1.5;
+      margin-bottom: 36px;
+      max-width: 300px;
+    }
+    .benefit strong {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* ── proof pills ── */
+    .pills {
+      display: flex;
+      gap: 8px;
       flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 36px;
     }
-    .trust-item {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 11.5px; color: var(--muted);
+    .pill {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,.7);
+      letter-spacing: .3px;
     }
-    .trust-item span { font-size: 15px; }
 
-    /* ─── exit popup ─── */
+    /* ── CTA ── */
+    .cta-wrap {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 18px 24px;
+      background: #229ED9;
+      border: none;
+      border-radius: 16px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: .2px;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 0 8px 32px rgba(34,158,217,.4), 0 2px 8px rgba(0,0,0,.3);
+    }
+    .btn::after {
+      content: '';
+      position: absolute; top: 0; left: -120%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+      animation: sheen 2.8s ease infinite;
+    }
+    @keyframes sheen { to { left: 160%; } }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(34,158,217,.55); }
+    .btn:active { transform: scale(.98); }
+    .btn svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+
+    .sub-note {
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
+      font-weight: 500;
+    }
+
+    /* ── disclaimer ── */
+    .disc {
+      margin-top: 40px;
+      font-size: 10.5px;
+      color: rgba(255,255,255,.25);
+      line-height: 1.6;
+      max-width: 360px;
+    }
+
+    /* ── exit overlay ── */
     #exit-overlay {
       position: fixed; inset: 0; z-index: 9999;
-      background: rgba(7,9,20,.82);
-      backdrop-filter: blur(6px);
+      background: rgba(7,9,20,.85);
+      backdrop-filter: blur(8px);
       display: none; align-items: center; justify-content: center;
-      padding: 16px;
+      padding: 20px;
     }
     #exit-overlay.show { display: flex; }
     .exit-modal {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 32px 24px 28px;
-      max-width: 400px; width: 100%;
+      background: #13162a;
+      border: 1px solid rgba(34,158,217,.25);
+      border-radius: 20px;
+      padding: 36px 24px 28px;
+      max-width: 360px; width: 100%;
       text-align: center;
-      box-shadow: 0 12px 60px rgba(0,0,0,.7);
-      animation: popIn .35s cubic-bezier(.34,1.56,.64,1) both;
+      animation: popIn .3s cubic-bezier(.34,1.56,.64,1) both;
     }
     @keyframes popIn {
-      from { opacity: 0; transform: scale(.85); }
+      from { opacity: 0; transform: scale(.88); }
       to   { opacity: 1; transform: scale(1); }
     }
-    .exit-modal .em { font-size: 48px; margin-bottom: 10px; }
+    .exit-modal .em { font-size: 44px; margin-bottom: 12px; }
     .exit-modal h2 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 26px; letter-spacing: 1.5px;
-      margin-bottom: 8px; color: #fff;
+      font-size: 28px; letter-spacing: 1.5px;
+      color: #fff; margin-bottom: 10px;
     }
-    .exit-modal p { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
-    .exit-modal .cta { margin-bottom: 12px; }
+    .exit-modal p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.6; margin-bottom: 24px; }
     .exit-close {
       background: none; border: none;
-      color: var(--muted); font-size: 12px; cursor: pointer;
-      text-decoration: underline;
+      color: rgba(255,255,255,.3); font-size: 12px; cursor: pointer;
+      text-decoration: underline; margin-top: 14px; display: block; width: 100%;
     }
-    .exit-close:hover { color: var(--text); }
-
-    /* ─── animations ─── */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ─── footer ─── */
-    footer {
-      margin-top: 32px; text-align: center;
-      font-size: 11px; color: var(--muted); line-height: 1.7;
-      max-width: 480px;
-    }
-    footer a { color: var(--muted); text-decoration: underline; }
+    .exit-close:hover { color: rgba(255,255,255,.55); }
   </style>
-<!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
-  n.callMethod.apply(n,arguments) : n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
 
-  fbq('init', '9701107916683633');
-  fbq('track', 'PageView');
+<!-- Meta Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','9701107916683633');
+  fbq('track','PageView');
 </script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=9701107916683633&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=9701107916683633&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
-<!-- TOP TELEGRAM BAR -->
-<a href="https://t.me/jcwintradersofficial" target="_blank" rel="noopener noreferrer" class="tg-top-bar" onclick="fbq('track','Lead')">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-  </svg>
-  <span>🎯 Join JC Win Traders on Telegram — Free Signals Daily!</span>
-  <span class="arrow">Join →</span>
-</a>
-
 <div class="page">
+  <div class="inner">
 
-  <!-- Hero strip -->
-  <div class="hero-strip">
-    <div class="logo-wrap">
-      <img src="https://raw.githubusercontent.com/jcwintraders/jc-win-traders/refs/heads/main/jcwintraderslogo.png" alt="JC Win Traders Logo" />
-    </div>
-    <div class="hero-text">
-      <h1>JC Win Traders</h1>
-      <p>⚡ Quotex Signals Provider</p>
-    </div>
-  </div>
-
-  <!-- Badge -->
-  <div class="badge">
-    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-    Best Quotex Signals Provider
-  </div>
-
-  <!-- Main card -->
-  <div class="card">
-
-    <!-- Stats -->
-    <div class="stats">
-      <div class="stat-box">
-        <div class="stat-icon">📊</div>
-        <div class="stat-val">2x</div>
-        <div class="stat-lbl">Daily<br>Sessions</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-icon">🕐</div>
-        <div class="stat-val">24/7</div>
-        <div class="stat-lbl">Support<br>Available</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-icon">🏆</div>
-        <div class="stat-val">Premium</div>
-        <div class="stat-lbl">High-Quality<br>Signals</div>
-      </div>
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/jcwintraders/jc-win-traders/refs/heads/main/jcwintraderslogo.png" alt="JC Win Traders" />
     </div>
 
-    <!-- Headline -->
-    <h2 class="card-headline">Trade Smarter.<br>Win Consistently.</h2>
-    <p class="card-sub">
-      Join thousands of traders accessing <strong>real-time Quotex signals</strong>
-      directly on Telegram — no delay, no fluff.
+    <h1>FREE<br>QUOTEX<br>SIGNALS</h1>
+
+    <p class="benefit">
+      Get <strong>2 live trade signals daily</strong> —<br>entry, asset & expiry. Straight to Telegram.
     </p>
 
-    <!-- Feature list -->
-    <ul class="features">
-      <li>
-        <span class="icon">⚡</span>
-        <span><strong>Real-Time Signals</strong> — Entry, expiry, and asset delivered instantly.</span>
-      </li>
-      <li>
-        <span class="icon">📈</span>
-        <span><strong>Two Daily Sessions</strong> — Morning & evening trade setups, every day.</span>
-      </li>
-      <li>
-        <span class="icon">💬</span>
-        <span><strong>Active Community</strong> — Ask questions, share results, grow together.</span>
-      </li>
-      <li>
-        <span class="icon">🎓</span>
-        <span><strong>Educational Tips</strong> — Learn the reasoning behind every signal.</span>
-      </li>
-    </ul>
-
-    <!-- Disclaimer (required for Meta Ads compliance) -->
-    <div class="disclaimer">
-      <strong>⚠️ Risk Disclaimer:</strong> Trading involves substantial risk of loss. Signals are for
-      informational and educational purposes only and do not constitute financial advice. Past
-      performance is not indicative of future results. Only trade with capital you can afford to lose.
+    <div class="pills">
+      <span class="pill">📊 2x Daily</span>
+      <span class="pill">💬 Free Forever</span>
+      <span class="pill">⚡ Instant Delivery</span>
     </div>
 
-    <!-- CTA -->
-    <a href="https://t.me/jcwintradersofficial" target="_blank" rel="noopener noreferrer" class="cta" id="mainCta" onclick="fbq('track','Lead')">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-      </svg>
-      Join Our Telegram Channel
-    </a>
-    <p class="cta-note">Free to join · No spam · Leave anytime</p>
-
-    <!-- Trust signals -->
-    <div class="trust">
-      <div class="trust-item"><span>🔒</span> Secure & Free</div>
-      <div class="trust-item"><span>✅</span> No Hidden Fees</div>
-      <div class="trust-item"><span>📱</span> Works on All Devices</div>
+    <div class="cta-wrap">
+      <a href="https://t.me/jcwintradersofficial" target="_blank" rel="noopener noreferrer"
+         class="btn" onclick="fbq('track','Lead')">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+        Join on Telegram — Free
+      </a>
+      <span class="sub-note">No spam · Leave anytime</span>
     </div>
+
+    <p class="disc">
+      Trading involves risk of loss. Signals are for educational purposes only and do not constitute financial advice.
+    </p>
 
   </div>
-
-  <footer>
-    <p>© 2025 JC Win Traders. All rights reserved.</p>
-    <p style="margin-top:6px;">
-      <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp;
-      Trading carries risk. This is not financial advice.
-    </p>
-  </footer>
-
 </div>
 
-<!-- Exit Intent Overlay -->
+<!-- Exit overlay -->
 <div id="exit-overlay">
   <div class="exit-modal">
-    <div class="em">👋</div>
-    <h2>Wait! Don't Miss Out</h2>
-    <p>
-      Join our free Telegram channel and get <strong style="color:#f5c842;">real-time Quotex signals</strong>
-      — two sessions every day, completely free.
-    </p>
-    <a href="https://t.me/jcwintradersofficial" target="_blank" rel="noopener noreferrer" class="cta" onclick="fbq('track','Lead')">
+    <div class="em">⚡</div>
+    <h2>Don't miss today's signals</h2>
+    <p>Two free trade setups, every single day — join before the next session starts.</p>
+    <a href="https://t.me/jcwintradersofficial" target="_blank" rel="noopener noreferrer"
+       class="btn" onclick="fbq('track','Lead')">
       <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;">
         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
       </svg>
       Join Telegram — It's Free
     </a>
-    <button class="exit-close" onclick="closeExit()">No thanks, I'll skip for now</button>
+    <button class="exit-close" onclick="closeExit()">No thanks</button>
   </div>
 </div>
 
 <script>
   const overlay = document.getElementById('exit-overlay');
   let exitShown = false;
-
-  function showExit() {
-    if (exitShown) return;
-    exitShown = true;
-    overlay.classList.add('show');
-  }
-
-  function closeExit() {
-    overlay.classList.remove('show');
-  }
-
-  // Close on backdrop click
-  overlay.addEventListener('click', function(e) {
-    if (e.target === this) closeExit();
-  });
-
-  // ── DESKTOP: mouse leaves through the top of the viewport ──
-  document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 10) showExit();
-  });
-
-  // ── MOBILE METHOD 1: Page becomes hidden (user switches app / pulls down nav bar) ──
-  document.addEventListener('visibilitychange', function() {
-    if (document.hidden) showExit();
-  });
-
-  // ── MOBILE METHOD 2: Touch swipe — fast upward swipe from top area ──
-  let touchStartY = 0;
-  let touchStartTime = 0;
-  document.addEventListener('touchstart', function(e) {
-    touchStartY = e.touches[0].clientY;
-    touchStartTime = Date.now();
+  function showExit() { if (exitShown) return; exitShown = true; overlay.classList.add('show'); }
+  function closeExit() { overlay.classList.remove('show'); }
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeExit(); });
+  document.addEventListener('mouseleave', e => { if (e.clientY <= 10) showExit(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) showExit(); });
+  let ty = 0, tt = 0;
+  document.addEventListener('touchstart', e => { ty = e.touches[0].clientY; tt = Date.now(); }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const dy = ty - e.changedTouches[0].clientY, dt = Date.now() - tt;
+    if (dy / dt > 0.6 && ty < window.innerHeight * 0.25) showExit();
   }, { passive: true });
-
-  document.addEventListener('touchend', function(e) {
-    const touchEndY = e.changedTouches[0].clientY;
-    const deltaY = touchStartY - touchEndY;       // positive = swipe up
-    const deltaT = Date.now() - touchStartTime;   // ms
-    const velocity = deltaY / deltaT;             // px/ms
-
-    // Fast upward swipe (velocity > 0.6 px/ms) starting near the top 25% of screen
-    if (velocity > 0.6 && touchStartY < window.innerHeight * 0.25) {
-      showExit();
-    }
+  let lastY = 0, upDist = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    upDist = y < lastY ? upDist + (lastY - y) : 0;
+    if (upDist > 200 && y < 80) showExit();
+    lastY = y;
   }, { passive: true });
-
-  // ── MOBILE METHOD 3: Scroll back to very top quickly (bounce / back gesture) ──
-  let lastScrollY = window.scrollY;
-  let scrollUpDist = 0;
-  window.addEventListener('scroll', function() {
-    const currentY = window.scrollY;
-    if (currentY < lastScrollY) {
-      scrollUpDist += (lastScrollY - currentY);
-    } else {
-      scrollUpDist = 0;
-    }
-    // User scrolled up 200px+ total and is near the top
-    if (scrollUpDist > 200 && currentY < 80) {
-      showExit();
-    }
-    lastScrollY = currentY;
-  }, { passive: true });
-
-  // ── MOBILE METHOD 4: Back button / popstate (Android back gesture) ──
   history.pushState(null, '', location.href);
-  window.addEventListener('popstate', function() {
-    showExit();
-    history.pushState(null, '', location.href); // keep them on page
-  });
+  window.addEventListener('popstate', () => { showExit(); history.pushState(null, '', location.href); });
 </script>
 
 </body>
