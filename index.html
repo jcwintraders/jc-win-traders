@@ -164,41 +164,7 @@
       max-width: 360px;
     }
 
-    /* ── exit overlay ── */
-    #exit-overlay {
-      position: fixed; inset: 0; z-index: 9999;
-      background: rgba(7,9,20,.85);
-      backdrop-filter: blur(8px);
-      display: none; align-items: center; justify-content: center;
-      padding: 20px;
-    }
-    #exit-overlay.show { display: flex; }
-    .exit-modal {
-      background: #13162a;
-      border: 1px solid rgba(34,158,217,.25);
-      border-radius: 20px;
-      padding: 36px 24px 28px;
-      max-width: 360px; width: 100%;
-      text-align: center;
-      animation: popIn .3s cubic-bezier(.34,1.56,.64,1) both;
-    }
-    @keyframes popIn {
-      from { opacity: 0; transform: scale(.88); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    .exit-modal .em { font-size: 44px; margin-bottom: 12px; }
-    .exit-modal h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px; letter-spacing: 1.5px;
-      color: #fff; margin-bottom: 10px;
-    }
-    .exit-modal p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.6; margin-bottom: 24px; }
-    .exit-close {
-      background: none; border: none;
-      color: rgba(255,255,255,.3); font-size: 12px; cursor: pointer;
-      text-decoration: underline; margin-top: 14px; display: block; width: 100%;
-    }
-    .exit-close:hover { color: rgba(255,255,255,.55); }
+
   </style>
 
 <!-- Meta Pixel -->
@@ -236,7 +202,7 @@
     </div>
 
     <div class="cta-wrap">
-      <a href="https://t.me/+3gjpZbLeTAFjNzY9" target="_blank" rel="noopener noreferrer"
+      <a href="https://t.me/jcwintradersofficial" target="_blank" rel="noopener noreferrer"
          class="btn" onclick="fbq('track','Lead')">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
@@ -253,47 +219,7 @@
   </div>
 </div>
 
-<!-- Exit overlay -->
-<div id="exit-overlay">
-  <div class="exit-modal">
-    <div class="em">⚡</div>
-    <h2>Don't miss today's signals</h2>
-    <p>Two free trade setups, every single day — join before the next session starts.</p>
-    <a href="https://t.me/+3gjpZbLeTAFjNzY9" target="_blank" rel="noopener noreferrer"
-       class="btn" onclick="fbq('track','Lead')">
-      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;">
-        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-      </svg>
-      Join Telegram — It's Free
-    </a>
-    <button class="exit-close" onclick="closeExit()">No thanks</button>
-  </div>
-</div>
 
-<script>
-  const overlay = document.getElementById('exit-overlay');
-  let exitShown = false;
-  function showExit() { if (exitShown) return; exitShown = true; overlay.classList.add('show'); }
-  function closeExit() { overlay.classList.remove('show'); }
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeExit(); });
-  document.addEventListener('mouseleave', e => { if (e.clientY <= 10) showExit(); });
-  document.addEventListener('visibilitychange', () => { if (document.hidden) showExit(); });
-  let ty = 0, tt = 0;
-  document.addEventListener('touchstart', e => { ty = e.touches[0].clientY; tt = Date.now(); }, { passive: true });
-  document.addEventListener('touchend', e => {
-    const dy = ty - e.changedTouches[0].clientY, dt = Date.now() - tt;
-    if (dy / dt > 0.6 && ty < window.innerHeight * 0.25) showExit();
-  }, { passive: true });
-  let lastY = 0, upDist = 0;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    upDist = y < lastY ? upDist + (lastY - y) : 0;
-    if (upDist > 200 && y < 80) showExit();
-    lastY = y;
-  }, { passive: true });
-  history.pushState(null, '', location.href);
-  window.addEventListener('popstate', () => { showExit(); history.pushState(null, '', location.href); });
-</script>
 
 </body>
 </html>
